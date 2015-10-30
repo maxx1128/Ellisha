@@ -1,9 +1,9 @@
-/* Uncomment and set these variables to customize the grid. */
+// Shortcut to vertical centering?
+// Look up other flexbox functions to add in?
 
-$flexy: (
-  columns: 14,
-  padding: 1rem
-);
+$flexy-columns: 12 !default;
+$flexy-padding: 1rem !default;
+$flexy-container-padding: 2rem !default;
 
 @function flexy($key) {
   @if map-has-key($flexy, $key) {
@@ -14,23 +14,22 @@ $flexy: (
   @return null;
 }
 
-@mixin flex-breakpoint($width) {
+@mixin flexy-breakpoint($width) {
   @media screen and (min-width: $width) {
     @content;
   }
 }
 
-@mixin flex-container($width) {
+@mixin flexy-container($width) {
   max-width: $width;
   box-sizing: border-box;
 
   margin-right: auto;
   margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding: $flexy-container-padding;
 }
 
-@mixin flex-row($direction: row) {
+@mixin flexy-row($direction: row) {
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,16 +60,17 @@ $flexy: (
 
 %flex-span-basics {
   box-sizing: border-box;
+
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
-  padding-right: flexy(padding);
-  padding-left: flexy(padding);
 }
 
-@mixin flex-span($col) {
+@mixin flexy-span($col, $context: $flexy-columns) {
   @extend %flex-span-basics;
+
+  padding: $flexy-padding;
 
   @if $col == auto {
     -webkit-flex-grow: 1;
@@ -81,89 +81,92 @@ $flexy: (
     -webkit-flex-basis: 0;
     flex-basis: 0;
     max-width: 100%;
+  
+  } @elseif $col == full {
+    -ms-flex-preferred-size: 100%;
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+
+  } @elseif unitless($col) == true {
+    -ms-flex-preferred-size: percentage($col/$context);
+    -webkit-flex-basis: percentage($col/$context);
+    flex-basis: percentage($col/$context);
+    max-width: percentage($col/$context);
+  
   } @else {
-    -ms-flex-preferred-size: percentage($col/flexy(columns));
-    -webkit-flex-basis: percentage($col/flexy(columns));
-    flex-basis: percentage($col/flexy(columns));
-    max-width: percentage($col/flexy(columns));
+    -ms-flex-preferred-size: $col;
+    -webkit-flex-basis: $col;
+    flex-basis: $col;
+    max-width: $col;
   }
 }
 
-@mixin flex-push($col) {
-  margin-left: percentage($col/12);
+@mixin flexy-push($col) {
+  margin-left: percentage($col/$flexy-columns);
 }
 
 
 // Still needs to be made into mixins
 
-.start-xs {
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  -webkit-box-pack: start;
-  justify-content: flex-start;
-  text-align: start;
+@mixin flexy-justify($justify) {
+
+  @if $justify == 'start' {
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    text-align: start;
+  } @elseif $justify == 'end' {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    text-align: end;
+  } @elseif $justify == 'center' {
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
-.center-xs {
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  text-align: center;
+
+@mixin flexy-align($align) {
+  @if $align == top {
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    -webkit-box-align: start;
+    align-items: flex-start;
+  } @elseif $align == middle {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+  } @elseif $align == bottom {
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    -webkit-box-align: end;
+    align-items: flex-end;
+  }
 }
 
-.end-xs {
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  -webkit-box-pack: end;
-  justify-content: flex-end;
-  text-align: end;
+@mixin flexy-spacing($space) {
+  @if $space == 'around' {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  } @elseif $space == 'between' {
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
 }
 
-.top-xs {
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  -webkit-box-align: start;
-  align-items: flex-start;
-}
-
-.middle-xs {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-  align-items: center;
-}
-
-.bottom-xs {
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  -webkit-box-align: end;
-  align-items: flex-end;
-}
-
-.around-xs {
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
-
-.between-xs {
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-.first-xs {
-  -webkit-order: -1;
-  -ms-flex-order: -1;
-  -webkit-box-ordinal-group: 0;
-  order: -1;
-}
-
-.last-xs {
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  -webkit-box-ordinal-group: 2;
-  order: 1;
+@mixin flexy-position($position) {
+  -webkit-order: $position;
+  -ms-flex-order: $position;
+  order: $position;
 }

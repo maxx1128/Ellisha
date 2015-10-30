@@ -1,16 +1,20 @@
+$flexy-columns: 12;
+$flexy-padding: .5rem 1rem;
+$flexy-container-padding: 0 2rem;
+
 body {
-	@include flex-container(95%);
+	@include flexy-container(95%);
 }
 
 .flex {
-	@include flex-row();
+	@include flexy-row();
 }
 
 .headers, .text {
-	@include flex-span(12);
+	@include flexy-span(full);
 
-	@include flex-breakpoint($tablet-screen) {
+	@include flexy-breakpoint($tablet-screen) {
 
-		@include flex-span(auto);
+		@include flexy-span(auto);
 	}
 }
