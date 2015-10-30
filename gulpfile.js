@@ -143,13 +143,11 @@ gulp.task('clean', function () {
     ]);
 });
 
-
-
 // Task to watch the things!
 gulp.task('watch', function(){
   livereload.listen();
     gulp.watch('js/**/**/*.js', ['scripts']);
-    gulp.watch('sass/**/**/*.scss', ['sass']);
+    gulp.watch(['sass/**/**/*.scss', 'dist/*.scss'], ['sass']);
     gulp.watch('jade/**/**/*.jade', ['jade']);
     gulp.watch('jade/img/**/**/*', ['images']);
     gulp.watch('index.html', ['homepage']);
