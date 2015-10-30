@@ -1,0 +1,17 @@
+{
+  "name": "Plately",
+  "version": "2.0.0",
+  "authors": [
+    "maxx1128 <maxx1128@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "bourbon": "~4.2.4",
+    "jquery": "~2.1.4",
+    "susy": "~2.2.6"
+  }
+}

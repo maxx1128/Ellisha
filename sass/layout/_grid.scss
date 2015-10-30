@@ -1,0 +1,16 @@
+body {
+	@include flex-container(95%);
+}
+
+.flex {
+	@include flex-row();
+}
+
+.headers, .text {
+	@include flex-span(12);
+
+	@include flex-breakpoint($tablet-screen) {
+
+		@include flex-span(auto);
+	}
+}
