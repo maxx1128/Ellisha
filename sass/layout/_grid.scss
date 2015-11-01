@@ -8,17 +8,6 @@ body {
 	@include flexy-container(90%);
 }
 
-// Basic styles for the example containers
-.example {
-	width: 100%;
-
-	padding: 1em 2em;
-
-	background-color: $row-color;
-	color: white;
-	text-align: center;
-}
-
 .flexy-row {
 	@include flexy-row();
 	margin: 2em;
