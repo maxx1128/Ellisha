@@ -95,7 +95,19 @@ $flexy-container-padding: 2rem !default;
 }
 
 @mixin flexy-push($col) {
-  margin-left: percentage($col/$flexy-columns);
+  @if unitless($col) ==  true {
+    margin-left: percentage($col/$flexy-columns);
+  } @else {
+    margin-left: $col;
+  }
+}
+
+@mixin flexy-pull($col) {
+  @if unitless($col) ==  true {
+    margin-left: percentage(($col/$flexy-columns) * -1);
+  } @else {
+    margin-left: $col * -1;
+  }
 }
 
 

@@ -1,0 +1,25 @@
+.col-auto {
+	@include flexy-span(auto);
+}
+
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		@include flexy-span($i);
+	}
+}
+
+@for $i from 15 through 45 {
+	$per: percentage($i/100);
+
+	.col-#{$i}p {
+		@include flexy-span($per);
+	}
+}
+
+$fixed: 10em, 15em, 18em, 25em, 300px;
+
+@each $length in $fixed {
+	.col-#{$length} {
+		@include flexy-span($length);
+	}
+}

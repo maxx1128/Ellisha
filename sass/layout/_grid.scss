@@ -1,20 +1,39 @@
 $flexy-columns: 12;
-$flexy-padding: .5rem 1rem;
-$flexy-container-padding: 0 2rem;
+$flexy-padding: 0;
+$flexy-container-padding: 0;
+
+$row-color: gray;
 
 body {
-	@include flexy-container(95%);
+	@include flexy-container(90%);
 }
 
-.flex {
+// Basic styles for the example containers
+.example {
+	width: 100%;
+
+	padding: 1em 2em;
+
+	background-color: $row-color;
+	color: white;
+	text-align: center;
+}
+
+.flexy-row {
 	@include flexy-row();
+	margin: 2em;
 }
 
-.headers, .text {
-	@include flexy-span(full);
+// Basic styles for the bars that go inside the flexbox items. Flex spans must be added based on examples
+.flexy-item {
+	background-color: blue;
+	text-align: center;
+	color: white;
+	border-left: .25em solid $row-color;
+	border-right: .25em solid $row-color;
 
-	@include flexy-breakpoint($tablet-screen) {
-
-		@include flexy-span(auto);
+	p {
+		@include padding(1em null);
+		margin: 0;
 	}
 }

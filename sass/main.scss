@@ -22,18 +22,11 @@
   'base/typography';
 
 @import
-  'layout/grid';
+  'layout/grid',
+  'layout/examples';
 
 @import
-  'components/tables',
-  'components/forms',
   'components/lists',
   'components/pre',
-  'components/buttons';
-
-@import
-  'pages/home';
-
-@import
-  'themes/theme',
-  'themes/admin';
+  'components/buttons',
+  'components/title';

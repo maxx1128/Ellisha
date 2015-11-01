@@ -3,30 +3,108 @@ doctype html
 html(lang="en")
 	include extends/header.jade
 	body
-		.flex
-			.headers
-				h1 Headings 1
-				h1 h1. Heading
-				h2 h2. Heading
-				h3 h3. Heading
-				h4 h4. Heading
-				h5 h5. Heading
-				h6 h6. Heading
+		.title
+			h1 Ellisha
+			h4 A Flexy Grid System
+			p Ellisha is a combination of Susy and FlexboxGrid. This means it has the flexibility and strengths of Flexbox, and the lightweight and customization of Susy.
 
-			.headers
-				h1 Headings 2
-				h1 h1. Heading
-				h2 h2. Heading
-				h3 h3. Heading
-				h4 h4. Heading
-				h5 h5. Heading
-				h6 h6. Heading
+		section
+			article
+				h3 Flexy Basics
+				p Ellisha uses two main mixins for flexbox layouts
+				ol
+					li flexy-row() - Creates a row that will contain flexbox items.
+					li flexy-span() - Must be used on elements in a flexy-row, and controls the width of the flexboxes.
+
+			.example
+				p flexy-row()
+
+				.flexy-row
+					.flexy-item.col-auto
+						p flexy-span()
+					.flexy-item.col-auto
+						p flexy-span()
+					.flexy-item.col-auto
+						p flexy-span()
+					.flexy-item.col-auto
+						p flexy-span()
+
+
+		section
+			article
+				h3 Flexy-span
+				p Ellisha works on a 12-column system by default. Use the number of columns you want each item to take up with the flexy-span mixin.
+
+			.example
+				.flexy-row
+					.flexy-item.col-6
+						p flexy-span(6)
+					.flexy-item.col-4
+						p flexy-span(4)
+					.flexy-item.col-2
+						p flexy-span(2)
+
+				.flexy-row
+					.flexy-item.col-3
+						p flexy-span(3)
+					.flexy-item.col-5
+						p flexy-span(5)
+					.flexy-item.col-4
+						p flexy-span(4)
+
+				.flexy-row
+					.flexy-item.col-2
+						p flexy-span(2)
+					.flexy-item.col-3
+						p flexy-span(3)
+					.flexy-item.col-7
+						p flexy-span(7)
 			
-			.text
-				h1 Paragraph
-				p
-					| Lorem ipsum dolor sit amet, 
-					a(href='#', title='test link') test link
-					|  adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy.
+			article
+				p There are three other units you can use instead of columns:
+				ol
+					li Percentage widths.
+					li Set widths, such as px or em. Be warned these may displace the grid to stack on smaller screens.
+					li Auto - All auto spans equally divide and share the remaining space in the row
+				p Feel free to mix and match for more complex layouts
+
+			.example
+				.flexy-row
+					.flexy-item.col-30p
+						p flexy-span(30%)
+					.flexy-item.col-25p
+						p flexy-span(25%)
+					.flexy-item.col-45p
+						p flexy-span(45%)
+
+				.flexy-row
+					.flexy-item.col-10em
+						p flexy-span(10em)
+					.flexy-item.col-300px
+						p flexy-span(300px)
+					.flexy-item.col-18em
+						p flexy-span(18em)
+
+				.flexy-row
+					.flexy-item.col-auto
+						p flexy-span(auto)
+					.flexy-item.col-auto
+						p flexy-span(auto)
+					.flexy-item.col-auto
+						p flexy-span(auto)
+					.flexy-item.col-auto
+						p flexy-span(auto)
+
+				.flexy-row
+					.flexy-item.col-2
+						p flexy-span(2)
+					.flexy-item.col-20p
+						p flexy-span(20%)
+					.flexy-item.col-15em
+						p flexy-span(15em)
+					.flexy-item.col-auto
+						p flexy-span(auto)
+
+
 
 		include extends/footer.jade
