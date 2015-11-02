@@ -5,12 +5,12 @@ html(lang="en")
 	body
 		.title
 			h1 Ellisha
-			h4 A Flexy Grid System
-			p Ellisha is a combination of Susy and FlexboxGrid. This means it has the flexibility and strengths of Flexbox, and the lightweight and customization of Susy.
+			h4 A Flexy Grid Toolkit
+			p Ellisha is a collection of mixins for simple, responsive layouts with Flexbox.
 
 		section
 			article
-				h3 flexy Basics
+				h3 Basics
 				p Ellisha uses two main mixins for flexbox layouts
 				ol
 					li flexy-row() - Creates a row that will contain flexbox items.
@@ -57,8 +57,10 @@ html(lang="en")
 						p flexy-span(2)
 					.flexy-item.col-3
 						p flexy-span(3)
-					.flexy-item.col-7
-						p flexy-span(7)
+					.flexy-item.col-5
+						p flexy-span(5)
+					.flexy-item.col-2
+						p flexy-span(2)
 			
 			article
 				p There are three other units you can use instead of columns:
@@ -78,12 +80,18 @@ html(lang="en")
 						p flexy-span(45%)
 
 				.flexy-row
-					.flexy-item.col-10em
-						p flexy-span(10em)
 					.flexy-item.col-300px
 						p flexy-span(300px)
-					.flexy-item.col-18em
-						p flexy-span(18em)
+					.flexy-item.col-15em
+						p flexy-span(15em)
+
+				.flexy-row
+					.flexy-item.col-auto
+						p flexy-span(auto)
+					.flexy-item.col-auto
+						p flexy-span(auto)
+					.flexy-item.col-auto
+						p flexy-span(auto)
 
 				.flexy-row
 					.flexy-item.col-auto
@@ -104,6 +112,10 @@ html(lang="en")
 						p flexy-span(15em)
 					.flexy-item.col-auto
 						p flexy-span(auto)
+
+		section
+			article
+				h3 flexy-container
 
 		section
 			article
@@ -135,7 +147,15 @@ html(lang="en")
 
 		section
 			article
-				h3 flexy-vertical-align
+				h3 flexy-center
+
+		section
+			article
+				h3 Variables
+
+		section
+			article
+				h3 Examples
 
 
 

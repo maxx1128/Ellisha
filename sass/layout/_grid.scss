@@ -2,7 +2,7 @@ $flexy-columns: 12;
 $flexy-padding: 0;
 $flexy-container-padding: 0;
 
-$row-color: gray;
+$row-color: color(medium);
 
 body {
 	@include flexy-container(90%);
@@ -15,9 +15,11 @@ body {
 
 // Basic styles for the bars that go inside the flexbox items. Flex spans must be added based on examples
 .flexy-item {
-	background-color: blue;
+	background-color: color(action);
 	text-align: center;
 	color: white;
+	font-size: .75em;
+
 	border-left: .25em solid $row-color;
 	border-right: .25em solid $row-color;
 

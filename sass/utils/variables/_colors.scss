@@ -4,9 +4,9 @@
 $colors: (
   white: #fff,
   action: #477dca,
-  dark: #333,
-  medium: #999,
-  light: #ddd
+  dark: #4C4E4D,
+  medium: darken(#F1F3F2, 7.5%),
+  light: #F1F3F2
 );
 
 // This is the function to pull colors out. It's here instead of on the functions sheet so the below color values can be set.
@@ -34,7 +34,7 @@ $base-border: 1px solid $base-border-color;
 // -- Background Colors -- //
 
 /// Standard background color for the whole project. Light colors are recommended.
-$base-background-color: color(white);
+$base-background-color: color(light);
 
 /// A tinted version of the standard background color. Slightly darker
 $secondary-background-color: tint($base-border-color, 75%);

@@ -7,13 +7,13 @@ $base-font-family: $lucida-grande;
 $heading-font-family: 'Futura', sans-serif;
 
 // The font size that all other element font sizes are scaled off of. This is often the size of basic paragraph text, and is scaled up for headers.
-$base-font-size: 1em;
+$base-font-size: 1.05em;
 
 // This is the initial scale of the modular scale ration you want your font sizes to begin at. Typically left at zero, which will make your basic text the same of your base font size. Header font sizes will scale up.
 $base-font-scale: 0;
 
 // This is the modular scale the fonts will use for sizes. It can be a Bourbon variable or an integer with decimals.
-$modular-scale-ratio: $minor-third;
+$modular-scale-ratio: $major-third;
 
 // This is the base font size to be used when creating all the other scaled font sizes. Best left as the base font size in most cases.
 $modular-scale-base: $base-font-size;

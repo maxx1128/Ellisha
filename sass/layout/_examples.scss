@@ -16,7 +16,7 @@
 	}
 }
 
-$fixed: 10em, 15em, 18em, 25em, 300px;
+$fixed: 10em, 15em, 25em, 200px, 300px;
 
 @each $length in $fixed {
 	.col-#{$length} {

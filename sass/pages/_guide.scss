@@ -6,6 +6,7 @@
 // Styling for the container of each flexy mixin
 section {
 	border-top: 1px solid black;
+	margin: 2em 0;
 }
 
 // Styling for the blocks of text around the examples
@@ -22,6 +23,5 @@ article {
 	padding: 1em 2em;
 
 	background-color: $row-color;
-	color: white;
 	text-align: center;
 }

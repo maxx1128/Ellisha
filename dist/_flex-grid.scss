@@ -190,7 +190,7 @@ $flexy-container-padding: 2rem !default;
 }
 
 // Pair this with a flexy-row, and the child must have a basic flex-span mixin
-@mixin flexy-vertical-align {
+@mixin flexy-center {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   -webkit-box-pack: center;
