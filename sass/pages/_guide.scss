@@ -6,7 +6,7 @@
 // Styling for the container of each flexy mixin
 section {
 	border-top: 1px solid black;
-	margin: 2em 0;
+	margin: 1.5em 0;
 }
 
 // Styling for the blocks of text around the examples
@@ -20,8 +20,15 @@ article {
 
 // Basic styles for the example containers
 .example {
-	padding: 1em 2em;
+	padding: 1em 0;
+	@include margin(1em 0);
+	@include clearfix();
 
 	background-color: $row-color;
 	text-align: center;
+
+	&.half {
+		width: 50%;
+		margin-left: 50%;
+	}
 }

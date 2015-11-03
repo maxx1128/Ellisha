@@ -169,7 +169,8 @@ $flexy-container-padding: 2rem !default;
 @mixin flexy-position($position) {
   -webkit-order: $position;
   -ms-flex-order: $position;
-  order: $position;
+  -webkit-box-ordinal-group: NaN;
+          order: $position;
 }
 
 

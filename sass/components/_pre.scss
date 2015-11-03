@@ -1,5 +1,15 @@
 pre {
-	background-color: $secondary-background-color;
 	padding: $base-spacing;
+	margin: 1.5em auto;
+
+	overflow: scroll;
+
+	color: #DDD;
+	background-color: #222;
 	font-family: $monospace;
+
+	@include flexy-breakpoint($tablet-screen) {
+		display: block;
+		width: 60%;
+	}
 }

@@ -5,8 +5,7 @@ html(lang="en")
 	body
 		.title
 			h1 Ellisha
-			h4 A Flexy Grid Toolkit
-			p Ellisha is a collection of mixins for simple, responsive layouts with Flexbox.
+			h5 A mixin collection for responsive Flexbox layouts.
 
 		section
 			article
@@ -103,7 +102,7 @@ html(lang="en")
 					.flexy-item.col-auto
 						p flexy-span(auto)
 
-				.flexy-row
+				.flexy-row-reverse
 					.flexy-item.col-2
 						p flexy-span(2)
 					.flexy-item.col-20p
@@ -115,27 +114,159 @@ html(lang="en")
 
 		section
 			article
+				h3 flexy-row
+
+			.example
+				p flexy-row()
+				.flexy-row
+					.flexy-item.col-2
+						p 1
+					.flexy-item.col-4
+						p 2
+					.flexy-item.col-6
+						p 3
+
+			.example
+				p flexy-row(row-reverse)
+				
+				.flexy-row-reverse
+					.flexy-item.col-2
+						p 1
+					.flexy-item.col-4
+						p 2
+					.flexy-item.col-6
+						p 3
+
+		section
+			article
+				h3 flexy-breakpoint
+
+			.example.flexy-breakpoint
+				.flexy-row
+					.flexy-item
+						p Full / Half / Third
+					.flexy-item
+						p Full / Half / Third
+					.flexy-item
+						p Full / Half / Third
+					.flexy-item
+						p Full / Half / Third
+					.flexy-item
+						p Full / Half / Third
+					.flexy-item
+						p Full / Half / Third
+
+			pre.
+				flexy-item {
+					@include flexy-span(12);
+					
+					@include flexy-breakpoint(480px) {
+						@include flexy-span(6);
+					}
+					
+					@include flexy-breakpoint(900px) {
+						@include flexy-span(4);
+					}
+				}
+
+		section
+			article
 				h3 flexy-container
 
-		section
-			article
-				h3 flexy-push
+			.example
+				p flexy-container(800px)
+				.flexy-row.container-800px
+					.flexy-item.col-auto
+						p I'm full-width but stop at 800px
 
-		section
-			article
-				h3 flexy-pull
+			.example
+				p flexy-container(80%)
+				.flexy-row.container-80
+					.flexy-item.col-auto
+						p I'm 80% wide and centered at all times
 
 		section
 			article
 				h3 flexy-justify
 
+			.example
+				p.left flexy-justify(start)
+				.flexy-row.justify-start
+					.flexy-item.col-3
+						p 3
+					.flexy-item.col-3
+						p 3
+				
+				p.right flexy-justify(end)
+				.flexy-row.justify-end
+					.flexy-item.col-3
+						p 3
+					.flexy-item.col-3
+						p 3
+
+				p flexy-justify(center)
+				.flexy-row.justify-center
+					.flexy-item.col-3
+						p 3
+					.flexy-item.col-3
+						p 3
+
 		section
 			article
 				h3 flexy-align
 
+			.example
+				p flexy-align(top)
+				.flexy-row.height.align-top
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+
+			.example
+				p flexy-align(middle)
+				.flexy-row.height.align-middle
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+
+			.example
+				p flexy-align(bottom)
+				.flexy-row.height.align-bottom
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+					.flexy-item.col-auto
+						p 4
+
 		section
 			article
 				h3 flexy-spacing
+
+			.example
+				p flexy-spacing(around)
+				.flexy-row.spacing-around
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
+
+				p flexy-spacing(between)
+				.flexy-row.spacing-between
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
 
 		section
 			article
@@ -144,6 +275,41 @@ html(lang="en")
 		section
 			article
 				h3 flexy-align-self
+
+			.example
+				.flexy-row.height
+					.flexy-item.col-auto.align-self-top
+						p flexy-align-self(top)
+					.flexy-item.col-auto.align-self-middle
+						p flexy-align-self(middle)
+					.flexy-item.col-auto.align-self-bottom
+						p flexy-align-self(bottom)
+
+		section
+			article
+				h3 flexy-push and flexy-pull
+
+			.example
+				.flexy-row
+					.flexy-item.col-3.push-4
+						p flexy-push(4)
+				.flexy-row
+					.flexy-item.col-3.push-12
+						p flexy-push(12em)
+				.flexy-row
+					.flexy-item.col-3.push-50p
+						p flexy-push(50%)
+
+			.example.half
+				.flexy-row
+					.flexy-item.col-3.pull-4
+						p flexy-pull(4)
+				.flexy-row
+					.flexy-item.col-3.pull-12
+						p flexy-pull(12em)
+				.flexy-row
+					.flexy-item.col-3.pull-50p
+						p flexy-pull(50%)
 
 		section
 			article
