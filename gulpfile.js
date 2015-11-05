@@ -1,17 +1,12 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     minifyCSS = require('gulp-minify-css'),
     livereload = require('gulp-livereload'),
     autoprefixer = require('gulp-autoprefixer'),
-    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     jade = require('gulp-jade'),
-    include = require('gulp-include'),
-    plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     sourcemaps = require('gulp-sourcemaps'),
-    uncss = require('gulp-uncss'),
     express = require('express'),
     del = require('del');
 
@@ -39,23 +34,6 @@ gulp.task('homepage', function(){
     .pipe(livereload());
 });
 
-// Uglify, to compress JS files
-gulp.task('scripts', function(){
-    gulp.src('js/main.js')
-    .pipe(include())
-      .on('error', console.log)
-    .pipe(plumber())
-         .pipe(uglify())
-    .on("error", notify.onError("Error:" + errorLog))
-    .pipe(rename('main.min.js'))
-    .pipe(gulp.dest(config.assetsPath + 'js'))
-    .pipe(notify({
-        message: 'JS Uglified!',
-        onLast: true
-    }))
-    .pipe(livereload());
-});
-
 // Convert all the SASS to CSS
 var sassInput = 'sass/main.scss';
 var sassOptions = { 
@@ -79,35 +57,6 @@ gulp.task('sass', function () {
         onLast: true
     }))
     .pipe(livereload());
-});
-
-gulp.task('uncss', function () {
-  return gulp
-    .src(config.assetsPath + 'css/style.min.css')
-    .pipe(uncss({
-        html: ['build/**/**/*.html']
-    }))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest(config.assetsPath + 'css'))
-    .pipe(notify({
-        message: 'CSS Trimmed!',
-        onLast: true
-    }))
-});
-
-// Compress all the image things!
-gulp.task('images', function () {
-    return gulp.src('jade/img/*')
-        .pipe(imagemin({
-            progressive: true
-        }))
-        .on("error", notify.onError("Error:" + errorLog))
-        .pipe(gulp.dest(config.assetsPath + '/img'))
-        .pipe(notify({
-        message: 'Images Optimized!',
-        onLast: true
-    }))
-        .pipe(livereload());
 });
 
 // Get all the Jade things!
@@ -146,12 +95,10 @@ gulp.task('clean', function () {
 // Task to watch the things!
 gulp.task('watch', function(){
   livereload.listen();
-    gulp.watch('js/**/**/*.js', ['scripts']);
     gulp.watch(['sass/**/**/*.scss', 'dist/*.scss'], ['sass']);
     gulp.watch('jade/**/**/*.jade', ['jade']);
-    gulp.watch('jade/img/**/**/*', ['images']);
     gulp.watch('index.html', ['homepage']);
 });
 
-gulp.task('default', ['scripts', 'sass', 'jade', 'images', 'watch']);
-gulp.task('prod', ['clean', 'prod-init', 'uncss']);
+gulp.task('default', ['jade', 'watch']);
+gulp.task('prod', ['clean', 'prod-init']);
