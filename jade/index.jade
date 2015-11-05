@@ -7,6 +7,12 @@ html(lang="en")
 			h1 Ellisha
 			h5 A mixin collection for responsive Flexbox layouts.
 
+		.links
+			.button
+				a.button-link(href="#") Download
+			.button
+				a.button-link(href="#") Github
+
 		section
 			article
 				h3 Basics
@@ -153,6 +159,16 @@ html(lang="en")
 					.flexy-item.col-auto
 						p flexy-span(auto)
 
+			.article
+				br
+				p Flexy-span can also accept a third argument to create inside padding. It's called differently depending on how you're declaring the span. If you're not declaring a specific number of columns, the 
+					tt $padding
+					|  variable should be called specifically.
+
+				pre.
+					@include flexy-span(1, 2, 1em)
+					@include flexy-span(9, $padding: 1em)
+
 
 		section
 			article
@@ -242,24 +258,24 @@ html(lang="en")
 			.example
 				p.left flexy-justify(start)
 				.flexy-row.justify-start
-					.flexy-item.col-3
-						p 3
-					.flexy-item.col-3
-						p 3
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
 				
 				p.right flexy-justify(end)
 				.flexy-row.justify-end
-					.flexy-item.col-3
-						p 3
-					.flexy-item.col-3
-						p 3
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
 
 				p flexy-justify(center)
 				.flexy-row.justify-center
-					.flexy-item.col-3
-						p 3
-					.flexy-item.col-3
-						p 3
+					.flexy-item.col-2
+						p 2
+					.flexy-item.col-2
+						p 2
 
 		section
 			article
@@ -326,7 +342,7 @@ html(lang="en")
 			article
 				h3 flexy-position
 
-				Use it on individual flex items to control what order they're in relative to the others.
+				p Use it on individual flex items to control what order they're in relative to the others.
 
 			.example
 				.flexy-row
@@ -383,7 +399,7 @@ html(lang="en")
 			article
 				h3 flexy-push and flexy-pull
 
-				Can add or remove space before or after flex items in a row. Can be based on columns or other measures.
+				p Can add or remove space before or after flex items in a row. Can be based on columns or other measures.
 
 			.example
 				.flexy-row

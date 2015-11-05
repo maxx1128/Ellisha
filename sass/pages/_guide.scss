@@ -32,3 +32,28 @@ article {
 		margin-left: 50%;
 	}
 }
+
+.links {
+	@include flexy-row();
+	@include flexy-justify(center);
+	@include flexy-spacing(around);
+
+	.button {
+		@include flexy-span(9, $padding: .5em 1em);
+
+		text-align: center;
+		
+
+		@include flexy-breakpoint(787px) {
+			@include flexy-span(4, $padding: .5em 1em);
+		}
+	}
+}
+
+.button-link {
+	padding: 1em;
+	display: block;
+
+	border: 2px solid color(medium);
+	border-radius: .5em;
+}

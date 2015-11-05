@@ -60,13 +60,13 @@ $flexy-center-padding: 0em !default;
   }
 }
 
-@mixin flexy-span($col, $context: $flexy-columns) {
+@mixin flexy-span($col, $context: $flexy-columns, $padding: $flexy-span-padding) {
   box-sizing: border-box;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   -webkit-box-flex: 0;
   flex: 1 1 auto;
-  padding: $flexy-span-padding;
+  padding: $padding;
 
   @if $col == auto {
     -webkit-flex-grow: 1;
