@@ -143,3 +143,14 @@ $fixed: 10em, 15em, 25em, 200px, 300px;
 	@include flexy-align-self(bottom);
 }
 
+@for $i from 1 through 6 {
+	.flex-order-#{$i} {
+		@include flexy-position($i);
+	}
+}
+
+
+
+.flexy-center {
+	@include flexy-center(5em);
+}

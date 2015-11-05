@@ -2,8 +2,10 @@
 // Look up other flexbox functions to add in?
 
 $flexy-columns: 12 !default;
-$flexy-padding: 1rem !default;
-$flexy-container-padding: 2rem !default;
+$flexy-container-padding: 0rem !default;
+$flexy-span-padding: 0em !default;
+$flexy-row-padding: 0em !default;
+$flexy-center-padding: 0em !default;
 
 @function flexy($key) {
   @if map-has-key($flexy, $key) {
@@ -49,6 +51,8 @@ $flexy-container-padding: 2rem !default;
   -webkit-box-direction: normal;
   flex-direction: $direction;
 
+  padding: $flexy-row-padding;
+
   @if $direction == row {
     -webkit-box-direction: normal;
   } @else {
@@ -58,11 +62,11 @@ $flexy-container-padding: 2rem !default;
 
 @mixin flexy-span($col, $context: $flexy-columns) {
   box-sizing: border-box;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
   -webkit-box-flex: 0;
-  flex: 0 0 auto;
-  padding: $flexy-padding;
+  flex: 1 1 auto;
+  padding: $flexy-span-padding;
 
   @if $col == auto {
     -webkit-flex-grow: 1;
@@ -191,7 +195,9 @@ $flexy-container-padding: 2rem !default;
 }
 
 // Pair this with a flexy-row, and the child must have a basic flex-span mixin
-@mixin flexy-center {
+@mixin flexy-center($padding: $flexy-center-padding) {
+  padding: $padding;
+
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   -webkit-box-pack: center;
