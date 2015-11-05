@@ -39,7 +39,7 @@ article {
 	@include flexy-spacing(around);
 
 	.button {
-		@include flexy-span(9, $padding: .5em 1em);
+		@include flexy-span(10, $padding: .5em 1em);
 
 		text-align: center;
 		
