@@ -65,6 +65,20 @@ $fixed: 10em, 15em, 25em, 200px, 300px;
 }
 
 
+
+.end-4 {
+	@include flexy-end(4);
+}
+
+.end-12 {
+	@include flexy-end(12em);
+}
+
+.end-50p {
+	@include flexy-end(50%);
+}
+
+
 // Pull Classes
 .pull-4 {
 	@include flexy-pull(4);

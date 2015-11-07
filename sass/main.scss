@@ -13,11 +13,6 @@
   'utils/variables/animation';
 
 @import
-  'utils/functions',
-  'utils/mixins',
-  'utils/placeholders';
-
-@import
   'base/typography';
 
 @import
@@ -29,5 +24,4 @@
 
 @import
   'components/lists',
-  'components/pre',
-  'components/buttons';
+  'components/pre';
