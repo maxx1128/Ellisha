@@ -37,10 +37,7 @@ $flexy-center-padding: 0em !default;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  -webkit-box-flex: 1;
-  flex: 1 1 auto;
+
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -98,6 +95,8 @@ $flexy-center-padding: 0em !default;
   }
 }
 
+
+
 @mixin flexy-push($col) {
   @if unitless($col) ==  true {
     margin-left: percentage($col/$flexy-columns);
@@ -114,8 +113,15 @@ $flexy-center-padding: 0em !default;
   }
 }
 
+@mixin flexy-end($col) {
+  @if unitless($col) ==  true {
+    margin-right: percentage(($col/$flexy-columns));
+  } @else {
+    margin-right: $col;
+  }
+}
 
-// Still needs to be made into mixins
+
 
 @mixin flexy-justify($justify) {
 
