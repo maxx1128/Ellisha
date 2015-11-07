@@ -166,9 +166,9 @@ $fixed: 10em, 15em, 25em, 200px, 300px;
 
 
 .flexy-center {
-	@include flexy-center(7.5em, 5em);
+	@include flexy-center(5em, 10em);
 }
 
 .flexy-center-2 {
-	@include flexy-center(20em, 10%);
+	@include flexy-center(10%);
 }

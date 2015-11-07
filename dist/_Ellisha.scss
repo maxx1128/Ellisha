@@ -201,8 +201,7 @@ $flexy-center-padding: 0em !default;
 }
 
 // Pair this with a flexy-row, and the child must have a basic flex-span mixin
-@mixin flexy-center($height, $padding: $flexy-center-padding) {
-  padding: $padding;
+@mixin flexy-center($padding, $height: null) {
   min-height: $height;
 
   -webkit-justify-content: center;
@@ -214,4 +213,12 @@ $flexy-center-padding: 0em !default;
   -ms-flex-align: center;
   -webkit-box-align: center;
   align-items: center;
+
+  & > :first-child {
+    margin: 0 auto;
+  }
+
+  @if ($padding) {
+      padding: $padding;
+  }
 }
