@@ -166,15 +166,13 @@ html(lang="en")
 
 			.article
 				br
-				p Flexy-span can also accept a third argument to create inside padding. It's called differently depending on how you're declaring the span. If you're not declaring a specific number of columns, the 
+				p Flexy-span can also accept a third argument to create inside padding. It's called differently depending on how it's declared. If you're not declaring a total number of columns, the 
 					tt $padding
 					|  variable should be called specifically.
 
 				pre.
 					@include flexy-span(1, 2, 1em)
 					@include flexy-span(9, $padding: 1em)
-
-
 		section
 			article
 				h3 flexy-row
@@ -406,7 +404,7 @@ html(lang="en")
 			article
 				h3 flexy-push and flexy-pull
 
-				p Can add or remove space before or after flex items in a row. Can be based on columns or other measures.
+				p Can add or remove space before or after flex items in a row. Can be based on columns, custom percentages or set lengths.
 
 			.example
 				h6 flexy-push
@@ -454,12 +452,25 @@ html(lang="en")
 			article
 				h3 flexy-center
 
-				p A shortcut for positioning span elements in the center or a larger container. Can use arguments for adding specific padding around the flex items.
+				p A shortcut for positioning elements in the center of a larger container. Accepts two arguments:
+				ol
+					li The container's minimum height
+					li The container's padding
 
 			.example
-				h6 flexy-center(2.5em)
+				h6 flexy-center(7.5em, 5em)
+				hr
 
-				.flexy-row.flexy-center
+				.flexy-center
+					h5 I'm always right in the center of this container, no matter what happens. This container is always at least 7.5em tall and has 5em of padding inside.
+			
+			p A flexy-container can also be paired with flexy-row and flexy-span to create layouts inside. Just keep in mind that the span elements are fixed to fill up the full height of the space inside the container.
+
+			.example
+				h6 flexy-center(20em, 10%) and flexy-row()
+				hr
+					
+				.flexy-row.flexy-center-2
 					.flexy-item.col-6
 						p flexy-span(6)
 					.flexy-item.col-6
@@ -507,6 +518,19 @@ html(lang="en")
 											.flexy-item.col-auto
 												p flexy-span(auto)
 
+			pre.
+				&lt;div class="flexy-row">
+					&lt;div class="flexy-span">
+						&lt;p>Content Here&lt;/p>
+						&lt;div class="extra-container">
+							&lt;div class="flexy-row">
+								&lt;div class="flexy-span">
+									&lt;p>Content Here&lt;/p>
+								&lt;/div>
+							&lt;/div>
+						&lt;/div>
+					&lt;/div>
+				&lt;/div>
 
 		section
 			article
