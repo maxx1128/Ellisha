@@ -27,6 +27,7 @@ html(lang="en")
 
 			.example
 				h6 .flexy-row
+				hr
 
 				.flexy-row
 					.flexy-item.col-auto
@@ -181,6 +182,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-row()
+				hr
 				.flexy-row
 					.flexy-item.col-2
 						p 1
@@ -191,7 +193,8 @@ html(lang="en")
 
 			.example
 				h6 flexy-row(row-reverse)
-				
+				hr
+
 				.flexy-row-reverse
 					.flexy-item.col-2
 						p 1
@@ -243,12 +246,14 @@ html(lang="en")
 
 			.example
 				h6 flexy-container(800px)
+				hr
 				.flexy-row.container-800px
 					.flexy-item.col-auto
 						p I'm full-width but stop at 800px
 
 			.example
 				h6 flexy-container(80%)
+				hr
 				.flexy-row.container-80
 					.flexy-item.col-auto
 						p I'm 80% wide and centered at all times
@@ -257,24 +262,29 @@ html(lang="en")
 			article
 				h3 flexy-justify
 
-				p Moves the flex elements to different sides of the screen. Will have no effect on rows completely full of items.
+				p Moves the flex elements to different sides of the screen. Will have no effect on rows full of items.
 
 			.example
-				h6.left flexy-justify(start)
+				h6 flexy-justify(start)
+				hr
 				.flexy-row.justify-start
 					.flexy-item.col-2
 						p 2
 					.flexy-item.col-2
 						p 2
-				
-				h6.right flexy-justify(end)
+			
+			.example
+				h6 flexy-justify(end)
+				hr
 				.flexy-row.justify-end
 					.flexy-item.col-2
 						p 2
 					.flexy-item.col-2
 						p 2
-
+			
+			.example
 				h6 flexy-justify(center)
+				hr
 				.flexy-row.justify-center
 					.flexy-item.col-2
 						p 2
@@ -289,6 +299,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-align(top)
+				hr
 				.flexy-row.height.align-top
 					.flexy-item.col-auto
 						p 4
@@ -299,6 +310,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-align(middle)
+				hr
 				.flexy-row.height.align-middle
 					.flexy-item.col-auto
 						p 4
@@ -309,6 +321,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-align(bottom)
+				hr
 				.flexy-row.height.align-bottom
 					.flexy-item.col-auto
 						p 4
@@ -321,10 +334,11 @@ html(lang="en")
 			article
 				h3 flexy-spacing
 
-				p Rearranges the extra space in a row around the flex items. No effect on rows completely full of items.
+				p Rearranges the extra space in a row around the flex items. No effect on rows full of items.
 
 			.example
 				h6 flexy-spacing(around)
+				hr
 				.flexy-row.spacing-around
 					.flexy-item.col-2
 						p 2
@@ -332,8 +346,10 @@ html(lang="en")
 						p 2
 					.flexy-item.col-2
 						p 2
-
+			
+			.example
 				h6 flexy-spacing(between)
+				hr
 				.flexy-row.spacing-between
 					.flexy-item.col-2
 						p 2
@@ -408,6 +424,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-push
+				hr
 				.flexy-row
 					.flexy-item.col-3.push-4
 						p flexy-push(4)
@@ -420,6 +437,7 @@ html(lang="en")
 
 			.example.half
 				h6 flexy-pull
+				hr
 				.flexy-row
 					.flexy-item.col-3.pull-4
 						p flexy-pull(4)
@@ -432,6 +450,7 @@ html(lang="en")
 
 			.example
 				h6 flexy-end
+				hr
 				.flexy-row
 					.flexy-item.col-3.end-4
 						p flexy-end(4)
@@ -462,32 +481,31 @@ html(lang="en")
 				hr
 
 				.flexy-center
-					h5 I'm always right in the center of this container, no matter what happens. This container is always at least 7.5em tall and has 5em of padding inside.
+					h5 I'm always right in the center of this container, no matter what happens. This container at least 7.5em tall and has 5em of padding inside. You could give me a set height and width and I'd still be in the middle.
 			
-			p A flexy-container can also be paired with flexy-row and flexy-span to create layouts inside. Just keep in mind that the span elements are fixed to fill up the full height of the space inside the container.
+			p A flexy-container can also be paired with flexy-row and flexy-span to create layouts inside. Just keep in mind that the span elements are set to align in the middle for a flexy-center element. This will create gaps between multiple rows if the container is too tall.
 
 			.example
-				h6 flexy-center(20em, 10%) and flexy-row()
+				h6 flexy-center(20em, 10%)
 				hr
-					
-				.flexy-row.flexy-center-2
-					.flexy-item.col-6
-						p flexy-span(6)
-					.flexy-item.col-6
-						p flexy-span(6)
-					.flexy-item.col-3
-						p flexy-span(3)
-					.flexy-item.col-auto
-						p flexy-span(auto)
+
+				.flexy-center-2
+					h6 flexy-row
+					.flexy-row.align-middle
+						.flexy-item.col-6
+							p flexy-span(6)
+						.flexy-item.col-6
+							p flexy-span(6)
+						.flexy-item.col-3
+							p flexy-span(3)
+						.flexy-item.col-auto
+							p flexy-span(auto)
 
 		section
 			article
 				h3 Nesting
 
 				p Flex rows can be nested infinitely inside each other. Just be sure there's an extra container around any flexy-row inside a flexy-span.
-
-				h5 Nesting Flow
-				p flexy-row > flexy-span > div > flexy-row > flexy-span > container > flexy-row > ...
 
 			.example
 				.flexy-row
@@ -535,6 +553,7 @@ html(lang="en")
 		section
 			article
 				h3 Variables
+				p These can be declared and redefined to customize several layout elements. All padding variables are set to 0 by default.
 
 				ul
 					li 
